@@ -30,8 +30,6 @@ class LL
         };
 
         LL(); // Sets head and tail to NULL
-        LL(const LL<type>&); // Makes a deep copy
-        // const LL<type>& operator=(const LL<type>&); // Deep copy assignment operator
         ~LL(); // Destructor to deallocate
         void tailInsert(const type&);
         iterator begin() const;
@@ -109,12 +107,6 @@ LL<type>::LL()
 {
     head = NULL;
     tail = NULL;
-}
-
-template <typename type>
-LL<type>::LL(const LL<type>& copy)
-{
-    this = copy;
 }
 
 template <typename type>
