@@ -2,7 +2,7 @@
 
 This repository will include all project assignments.
 
-# Course Description
+## Course Description
 Introduction to sequential and linked structures. File access including sequential, indexed
 sequential and other file organizations. Internal structures including stacks, queues, trees,
 and graphs. Algorithms for implementing and manipulating structured objects. Big-O-notation.
