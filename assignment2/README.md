@@ -6,6 +6,15 @@ is to construct a tour (write the knight move counter) onto each element of the 
 a knight tour on a given (n x n) board and given the knight’s initial coordinates. You will need to use a
 recursive back tracking approach (using a heuristic approach defined later in this write up). 
 
+### Steps
+1. Set the board[r][c] with tourIndex
+2. Check if the board is full if so, return true
+3. Get all the available moves from location [r, c]
+4. Pick the available move with the minimal onward moves
+5. Make a recursive call to this function, pass in the new r and c values using the chosen available move from the above step 2
+6. If the function returns true then simply return true, otherwise go back to step 4 but pick the next smallest onward moves from available moves
+
+## Sample Run
 ```
 Enter board dimension: 8
 Enter initial knight position: 4 5
