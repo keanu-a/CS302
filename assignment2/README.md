@@ -1,4 +1,4 @@
-# Assignment 2: Knight Problem
+# Assignment 2: Knight Problem - Recursion
 
 ## Description
 The knight will have some starting position, and the programs job
