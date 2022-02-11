@@ -1,10 +1,17 @@
 # Assignment 1: Bubble Sort on a doubly linked list
 
 ## Description
-Sorting. One of the celebrated topics in computer science and which we will spend quite a bit of time during
-the earlier part of the semester. You will implement bubble sort, probably the first sorting algorithm to
-which you were introduced back in CS135. Except we will use a linked list and use iterators just to give you
-a very pleasant welcome to CS302. The next section goes over the data type you will need to implement.
+This program will review concepts from CS202 including templates, classes, structs, file IO,
+linked list, operator overloading, and pointers.
+
+The program will read through a file and read each item into a node inside a linked list. 
+The nodes will be sorted from least to greatest using bubble sort. However, the nodes
+will not be swapped just by value, but swapping the whole node of the linked list.
+
+This doubly linked list is not sorted by any counter loops but with an iterator object
+that I created.
+
+Since we are using templates, this program can sort strings, ints, floats, etc.
 
 ## Sample Run
 ```
