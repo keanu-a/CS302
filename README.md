@@ -8,3 +8,7 @@ sequential and other file organizations. Internal structures including stacks, q
 and graphs. Algorithms for implementing and manipulating structured objects. Big-O-notation.
 
 Programs are needed to compile and run on a Linux environment, Ubuntu 18.04 LTS.
+
+## Assignment Topic
+1. Assignment 1 - Doubly Linked List, Structs, Operator Overloading, Classes, Bubble Sort
+2. Assignment 2 - Classes, Recursion
