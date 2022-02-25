@@ -1,10 +1,11 @@
-# Assignment Overview
+# Assignment 4 - Multithreading
+
+## Description
 For this assignment, you will need to write a function that is assigned to each thread that computes part
 of the product of two matrices, and when all the threads are done, the product of two matrices has been
 computed. You may use a 2D std::vector< std::vector<int> > object to maintain the matrices, and
-they can be global vectors since they will be shared memory among the threads. You might not need to use
-std::mutex locks since each thread might not be writing to the same locations in the matrices at the same
-time.
+they can be global vectors since they will be shared memory among the threads.
+
 Thus in main, it will be your responsibility to not spawn more than the amount of threads that can be run
 concurrently, and assign each thread to the appropriate part of the matrices to allow the computation to be
 done in parallel. A warning, passing by reference into a thread function causes issues. Luckily you can have
