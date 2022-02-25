@@ -1,26 +1,35 @@
 // Keanu Aloua
-// February 21, 2022
-// Working with threads
+// February 24, 2022
+// Multiplying matrices by multithreading
 
 #include <iostream>
 #include <thread>
 #include <fstream>
 #include <vector>
 
+std::vector< std::vector<int> > matrix1, matrix2, endMatrix;
+
+void multiplyMatrices(int row1, int col2, int row2);
 void printMatrix(std::vector< std::vector<int> > matrix, int row, int col);
 
 int main()
-{
-    std::vector< std::vector<int> > matrix1, matrix2, endMatrix;
-    
+{   
+    // File Variables
     std::string filename;
     std::ifstream file;
+
+    // Matrix Variables
     int n1, m1, n2, m2, num;
+
+    // Thread Variables
+    std::vector<std::thread> threadPool;
+    int maxThreads = std::thread::hardware_concurrency();
 
     // Prompting user for file name
     std::cout << "Please enter a file name: ";
     std::cin >> filename;
     file.open(filename);
+
 
     // Getting Matrix 1
     file >> n1 >> m1; // Gets rows and cols for matrix 1
@@ -62,9 +71,69 @@ int main()
         matrix2.push_back(row);
     }
 
-    // Calculating
+    // Setting result matrix to all zeroes
+    // This is for when the threads do the calculations, we can set the value in the matrix
+    for (int i = 0; i < n1; i++) {
+        std::vector<int> row;
+
+        for (int j = 0; j < m2; j++) {
+            row.push_back(0);
+        }
+
+        endMatrix.push_back(row);
+    }
+
+    // ------------------------------------------------------------- //
+    // ---------------- START MATRIX MULTIPLICATION ---------------- //
+    // ------------------------------------------------------------- //
+
+    // Going to go through each row of matrix 1    
+    for (int i = 0; i < n1; i++) {
+        std::vector<int> row;
+
+        // Each column of matrix 2
+        for (int j = 0; j < m2; j++) {
+            int rowSums = 0;
+
+            threadPool.push_back( std::thread(multiplyMatrices, i, j, n2) );
+
+            // Checks if spawned max number of threads
+            if (threadPool.size() % maxThreads == 0) {
+
+                // Joins all threads before spawning more threads
+                for (int i = 0; i < threadPool.size(); i++) {
+                    threadPool[i].join();
+                }
+
+                // Clears the vector
+                threadPool.clear();
+            }
+        }
+    }
+
+    // Joins threads if there are any running after loop ends
+    for (int i = 0; i < threadPool.size(); i++) {
+        threadPool[i].join();
+    }
+
+    // Outputs result matrix
+    printMatrix(endMatrix, endMatrix.size(), endMatrix[0].size());
  
     return 0;
+}
+
+void multiplyMatrices(int row1, int col2, int row2) {
+    int sum = 0;
+
+    // Each row of matrix 2
+    for (int k = 0; k < row2; k++) {
+        sum += matrix1[row1][k] * matrix2[k][col2];
+    }
+
+    // Setting result matrix spot to calculated sum
+    endMatrix[row1][col2] = sum;
+
+    return;
 }
 
 void printMatrix(std::vector< std::vector<int> > matrix, int row, int col) {
@@ -76,6 +145,8 @@ void printMatrix(std::vector< std::vector<int> > matrix, int row, int col) {
         }
         std::cout << std::endl;
     }
+
+    std::cout << std::endl;
 
     return;
 }
