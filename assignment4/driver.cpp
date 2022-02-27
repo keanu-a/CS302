@@ -26,7 +26,7 @@ int main()
     int maxThreads = std::thread::hardware_concurrency();
 
     // Prompting user for file name
-    std::cout << "Please enter a file name: ";
+    std::cout << "Enter filename: ";
     std::cin >> filename;
     file.open(filename);
 
@@ -89,7 +89,6 @@ int main()
 
     // Going to go through each row of matrix 1    
     for (int i = 0; i < n1; i++) {
-        std::vector<int> row;
 
         // Each column of matrix 2
         for (int j = 0; j < m2; j++) {
