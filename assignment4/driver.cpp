@@ -92,7 +92,6 @@ int main()
 
         // Each column of matrix 2
         for (int j = 0; j < m2; j++) {
-            int rowSums = 0;
 
             threadPool.push_back( std::thread(multiplyMatrices, i, j, n2) );
 
