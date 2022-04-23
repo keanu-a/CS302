@@ -16,4 +16,5 @@ Programs are needed to compile and run on a Linux environment, Ubuntu 18.04 LTS.
 4. Assignment 4 - Multithreading
 5. Assignment 5 - Binary Trees
 6. Assignment 6 - Hashmaps (Use of the unordered_list library)
-7. Assignment 7 - Creating a Custom Hashmap
+7. Assignment 7 - Custom Hashmap
+8. Assignment 8 - Priority Queue
