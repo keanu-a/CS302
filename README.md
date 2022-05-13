@@ -19,3 +19,4 @@ Programs are needed to compile and run on a Linux environment, Ubuntu 18.04 LTS.
 7. Assignment 7 - Custom Hashmap
 8. Assignment 8 - Priority Queue
 9. Assignment 9 - Graph Traversal: Depth First Search
+10. Extra Credit - Graph Traversal: Dijkstras Algorithm
